@@ -15,9 +15,9 @@ This is a plain static site. No build step is required.
 Recommended GitHub Pages settings:
 1. Push this repository to GitHub.
 2. Open repository `Settings` -> `Pages`.
-3. Set `Build and deployment` source to `Deploy from a branch`.
-4. Select branch `main` and folder `/ (root)`.
-5. Save. The published site will use `index.html` as the default Chinese homepage.
+3. Set `Build and deployment` source to `GitHub Actions`.
+4. The workflow in `.github/workflows/pages.yml` will publish the static site from `main`.
+5. The published site will use `index.html` as the default Chinese homepage.
 
 The English homepage is available at:
 
