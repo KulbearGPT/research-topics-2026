@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="从图片到3D资产再到骨架和动画的完整流程示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#10213c"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <linearGradient id="cyanPurple" x1="0" x2="1"><stop stop-color="#6ee7f9"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="goldPink" x1="0" x2="1"><stop stop-color="#fbbf24"/><stop offset="1" stop-color="#fb7185"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>
+      .title{font:800 40px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff;letter-spacing:-.5px}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 26px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 18px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.tiny{font:700 15px Arial,'Noto Sans SC',sans-serif;fill:#dce7ff}.tag{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#06101d}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#dffbff}.line{stroke:#f8fafc;stroke-width:7;stroke-linecap:round;fill:none}.joint{fill:#f8fafc}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}
+    </style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="180" cy="80" r="190" fill="#6ee7f9" opacity=".11"/>
+  <circle cx="1400" cy="95" r="220" fill="#a78bfa" opacity=".13"/>
+  <text x="60" y="70" class="title">Image → 3D Gaussian → Rigged Asset → Animation</text>
+  <text x="62" y="112" class="sub">输入是一张或少量图片，输出是可从新视角观察、可绑定骨架、可产生动作的 3D 资产。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">01  输入图像</text>
+    <text x="28" y="82" class="desc">单张图像 / 少量视角</text>
+    <g transform="translate(58 128)">
+      <rect x="0" y="26" width="190" height="230" rx="20" fill="#dbeafe" opacity=".9"/>
+      <rect x="18" y="44" width="154" height="194" rx="14" fill="#2b4664"/>
+      <rect x="-24" y="0" width="116" height="146" rx="15" fill="#eff6ff" opacity=".35"/>
+      <rect x="106" y="82" width="116" height="146" rx="15" fill="#eff6ff" opacity=".30"/>
+      <circle cx="95" cy="100" r="40" fill="#f2c19a"/>
+      <rect x="52" y="140" width="86" height="66" rx="22" fill="#fbbf24"/>
+      <line x1="60" y1="174" x2="28" y2="222" stroke="#fbbf24" stroke-width="16" stroke-linecap="round"/>
+      <line x1="130" y1="174" x2="166" y2="222" stroke="#fbbf24" stroke-width="16" stroke-linecap="round"/>
+      <circle cx="81" cy="94" r="5" fill="#1f2937"/><circle cx="110" cy="94" r="5" fill="#1f2937"/>
+      <path d="M83 116 Q95 126 108 116" fill="none" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <rect x="28" y="412" width="158" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/>
+    <text x="48" y="435" class="topic">photo input</text>
+  </g>
+
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">02  3D Gaussian</text>
+    <text x="28" y="82" class="desc">可渲染的三维表征</text>
+    <g transform="translate(52 120)" filter="url(#glow)">
+      <ellipse cx="112" cy="258" rx="118" ry="38" fill="none" stroke="#5f789d" stroke-width="2" stroke-dasharray="7 8"/>
+      <ellipse cx="112" cy="190" rx="48" ry="156" fill="none" stroke="#5f789d" stroke-width="2" stroke-dasharray="7 8"/>
+      <ellipse cx="112" cy="190" rx="138" ry="50" fill="none" stroke="#3e536f" stroke-width="2" stroke-dasharray="7 8"/>
+      <circle cx="112" cy="72" r="34" fill="#fbbf24"/><circle cx="82" cy="128" r="25" fill="#6ee7f9"/><circle cx="144" cy="128" r="26" fill="#a78bfa"/>
+      <circle cx="112" cy="196" r="44" fill="#fb7185"/><circle cx="70" cy="252" r="19" fill="#6ee7f9"/><circle cx="158" cy="252" r="19" fill="#86efac"/>
+      <circle cx="62" cy="312" r="14" fill="#fbbf24"/><circle cx="170" cy="312" r="14" fill="#f472b6"/>
+    </g>
+    <rect x="28" y="412" width="184" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/>
+    <text x="48" y="435" class="topic">课题一：重建</text>
+  </g>
+
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">03  骨架绑定</text>
+    <text x="28" y="82" class="desc">skeleton + skinning weights</text>
+    <g transform="translate(58 118)">
+      <g opacity=".55" filter="url(#glow)"><circle cx="105" cy="62" r="34" fill="#fbbf24"/><circle cx="105" cy="140" r="52" fill="#fb7185"/><circle cx="55" cy="205" r="24" fill="#6ee7f9"/><circle cx="158" cy="205" r="24" fill="#86efac"/><circle cx="70" cy="295" r="16" fill="#a78bfa"/><circle cx="144" cy="295" r="16" fill="#a78bfa"/></g>
+      <path class="line" d="M105 58 L105 152 M105 116 L50 198 M105 116 L164 198 M105 152 L72 300 M105 152 L146 300"/>
+      <circle class="joint" cx="105" cy="58" r="9"/><circle class="joint" cx="105" cy="116" r="9"/><circle class="joint" cx="105" cy="152" r="9"/><circle class="joint" cx="50" cy="198" r="9"/><circle class="joint" cx="164" cy="198" r="9"/><circle class="joint" cx="72" cy="300" r="9"/><circle class="joint" cx="146" cy="300" r="9"/>
+    </g>
+    <rect x="28" y="412" width="222" height="34" rx="17" fill="rgba(167,139,250,.17)" stroke="#a78bfa"/>
+    <text x="48" y="435" class="topic">课题二：结构线索</text>
+  </g>
+
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">04  动画输出</text>
+    <text x="28" y="82" class="desc">pose / video / viewer demo</text>
+    <g transform="translate(88 134)">
+      <g opacity=".28" stroke="#a78bfa" stroke-width="8" stroke-linecap="round" fill="none">
+        <circle cx="72" cy="32" r="28" fill="#a78bfa" stroke="none"/>
+        <path d="M72 66 L72 150 M72 105 L28 88 M72 105 L122 78 M72 150 L48 250 M72 150 L126 238"/>
+      </g>
+      <g stroke="#f8fafc" stroke-width="8" stroke-linecap="round" fill="none">
+        <circle cx="72" cy="32" r="28" fill="#fbbf24" stroke="none"/>
+        <path d="M72 66 L72 150 M72 105 L26 138 M72 105 L124 128 M72 150 L40 248 M72 150 L116 252"/>
+      </g>
+      <path d="M176 58 q38 32 0 64" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round"/>
+      <path d="M174 58 l18 2 M176 122 l17 -8" stroke="#86efac" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <rect x="28" y="412" width="210" height="34" rx="17" fill="rgba(251,191,36,.16)" stroke="#fbbf24"/>
+    <text x="48" y="435" class="topic">课题三：变形动画</text>
+  </g>
+</svg>

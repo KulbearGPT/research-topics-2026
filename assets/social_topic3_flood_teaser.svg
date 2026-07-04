@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="城市内涝风险预测课题输入输出示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#141b36"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <linearGradient id="water" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#6ee7f9"/><stop offset=".54" stop-color="#3b82f6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>.title{font:800 38px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 25px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 17px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#efe8ff}.small{font:700 16px Arial,'Noto Sans SC',sans-serif;fill:#dce7ff}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}.road{stroke:#cbd5e1;stroke-width:11;fill:none;stroke-linecap:round}.graph{stroke:#a78bfa;stroke-width:6;fill:none;stroke-linecap:round}.node{fill:#f8fafc}</style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="150" cy="86" r="190" fill="#6ee7f9" opacity=".09"/><circle cx="1410" cy="96" r="220" fill="#a78bfa" opacity=".12"/>
+  <text x="60" y="70" class="title">Social Impact 03：Urban Flood Risk Prediction</text>
+  <text x="62" y="112" class="sub">融合 SAR、光学遥感、降雨、DEM 与城市道路建筑图，预测积水区域和受灾基础设施。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Input</text><text x="28" y="82" class="desc">SAR / optical / rainfall / DEM</text>
+    <g transform="translate(44 128)">
+      <rect x="0" y="0" width="232" height="252" rx="22" fill="#0f172a" stroke="rgba(255,255,255,.18)"/>
+      <rect x="18" y="28" width="48" height="46" rx="7" fill="#334155"/><rect x="88" y="28" width="42" height="62" rx="7" fill="#475569"/><rect x="158" y="28" width="48" height="44" rx="7" fill="#334155"/>
+      <rect x="22" y="124" width="52" height="56" rx="7" fill="#475569"/><rect x="96" y="138" width="42" height="48" rx="7" fill="#334155"/><rect x="166" y="122" width="44" height="62" rx="7" fill="#475569"/>
+      <path class="road" d="M8 104 H224 M116 8 V244 M20 216 C74 176 150 218 220 176"/>
+      <path d="M0 202 C58 176 96 226 144 190 C180 164 206 178 232 154 L232 252 L0 252 Z" fill="url(#water)" opacity=".78" filter="url(#glow)"/>
+    </g>
+    <rect x="28" y="412" width="226" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">multi-modal city sensing</text>
+  </g>
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Urban Graph</text><text x="28" y="82" class="desc">道路、建筑与城市网格</text>
+    <g transform="translate(56 128)">
+      <rect x="0" y="0" width="214" height="252" rx="24" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.18)"/>
+      <path class="graph" d="M42 48 L112 82 L172 42 M112 82 L74 154 L154 162 M74 154 L42 218 M154 162 L184 220"/>
+      <circle class="node" cx="42" cy="48" r="10"/><circle class="node" cx="112" cy="82" r="10"/><circle class="node" cx="172" cy="42" r="10"/><circle class="node" cx="74" cy="154" r="10"/><circle class="node" cx="154" cy="162" r="10"/><circle class="node" cx="42" cy="218" r="10"/><circle class="node" cx="184" cy="220" r="10"/>
+      <rect x="18" y="94" width="42" height="34" rx="7" fill="#334155"/><rect x="142" y="92" width="42" height="34" rx="7" fill="#475569"/>
+    </g>
+    <rect x="28" y="412" width="226" height="34" rx="17" fill="rgba(167,139,250,.17)" stroke="#a78bfa"/><text x="48" y="435" class="topic">road + building topology</text>
+  </g>
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Fusion Model</text><text x="28" y="82" class="desc">遥感分割 + GNN + 水文特征</text>
+    <g transform="translate(52 126)">
+      <rect x="0" y="0" width="70" height="238" rx="20" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/>
+      <rect x="78" y="32" width="70" height="238" rx="20" fill="rgba(167,139,250,.16)" stroke="#a78bfa"/>
+      <rect x="156" y="0" width="70" height="238" rx="20" fill="rgba(251,191,36,.14)" stroke="#fbbf24"/>
+      <path d="M36 276 H194" stroke="#86efac" stroke-width="8" marker-end="url(#arrow)"/>
+      <text x="18" y="128" class="small" transform="rotate(-90 18 128)">SAR</text>
+      <text x="98" y="154" class="small" transform="rotate(-90 98 154)">Graph</text>
+      <text x="176" y="128" class="small" transform="rotate(-90 176 128)">DEM</text>
+    </g>
+    <rect x="28" y="412" width="224" height="34" rx="17" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="48" y="435" class="topic">cross-modal risk decoder</text>
+  </g>
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Impact</text><text x="28" y="82" class="desc">受淹道路与建筑风险</text>
+    <g transform="translate(46 126)">
+      <rect x="0" y="0" width="226" height="268" rx="24" fill="#0f172a" stroke="rgba(255,255,255,.18)"/>
+      <path class="road" d="M12 96 H214 M112 18 V246"/>
+      <path d="M0 190 C42 150 86 208 124 166 C156 130 190 154 226 118 L226 268 L0 268 Z" fill="url(#water)" opacity=".78" filter="url(#glow)"/>
+      <rect x="24" y="32" width="42" height="40" rx="7" fill="#475569"/><rect x="152" y="38" width="44" height="42" rx="7" fill="#fb7185"/>
+      <rect x="24" y="138" width="44" height="48" rx="7" fill="#fbbf24"/><rect x="154" y="158" width="46" height="48" rx="7" fill="#475569"/>
+      <circle cx="112" cy="150" r="18" fill="#fb7185"/><circle cx="160" cy="188" r="13" fill="#fbbf24"/><circle cx="62" cy="178" r="13" fill="#fbbf24"/>
+    </g>
+    <rect x="28" y="412" width="230" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">infrastructure risk map</text>
+  </g>
+</svg>

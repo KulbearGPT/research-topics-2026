@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="课题一 Sparse-view Gaussian Reconstruction 输入输出示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#091326"/><stop offset="1" stop-color="#10213c"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <linearGradient id="depth" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#22d3ee"/><stop offset=".55" stop-color="#a78bfa"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>.title{font:800 38px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 25px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 17px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#dffbff}.small{font:700 16px Arial,'Noto Sans SC',sans-serif;fill:#dce7ff}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}.line{stroke:#f8fafc;stroke-width:6;stroke-linecap:round;fill:none}.joint{fill:#f8fafc}</style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="145" cy="80" r="190" fill="#6ee7f9" opacity=".10"/><circle cx="1420" cy="95" r="220" fill="#a78bfa" opacity=".11"/>
+  <text x="60" y="70" class="title">课题一：Sparse-view Gaussian Reconstruction</text>
+  <text x="62" y="112" class="sub">从一张或少量图片恢复 3D Gaussian，并检查它是否保留关节、细长结构和可动边界。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Input</text><text x="28" y="82" class="desc">1–4 张 RGB 图像</text>
+    <g transform="translate(50 130)">
+      <rect x="0" y="0" width="176" height="214" rx="20" fill="#dbeafe" opacity=".35"/>
+      <rect x="34" y="28" width="176" height="214" rx="20" fill="#dbeafe" opacity=".55"/>
+      <rect x="68" y="56" width="176" height="214" rx="20" fill="#eaf2ff"/>
+      <rect x="88" y="78" width="136" height="168" rx="12" fill="#34516e"/>
+      <circle cx="156" cy="124" r="32" fill="#fb7185"/>
+      <rect x="118" y="158" width="76" height="58" rx="17" fill="#fbbf24"/>
+      <line x1="126" y1="190" x2="98" y2="230" stroke="#fbbf24" stroke-width="14" stroke-linecap="round"/>
+      <line x1="187" y1="190" x2="220" y2="230" stroke="#fbbf24" stroke-width="14" stroke-linecap="round"/>
+    </g>
+    <rect x="28" y="412" width="156" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">single / sparse view</text>
+  </g>
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Geometry Prior</text><text x="28" y="82" class="desc">depth / point map / confidence</text>
+    <g transform="translate(50 132)">
+      <rect x="0" y="0" width="225" height="250" rx="22" fill="#0f172a"/>
+      <path d="M0 250 C58 160 112 210 225 64 L225 250 Z" fill="#22d3ee" opacity=".82"/>
+      <path d="M0 250 C60 204 115 140 225 110 L225 250 Z" fill="#a78bfa" opacity=".72"/>
+      <path d="M0 250 C70 235 140 192 225 162 L225 250 Z" fill="#fbbf24" opacity=".78"/>
+      <g opacity=".9"><circle cx="55" cy="204" r="5" fill="#fff"/><circle cx="98" cy="174" r="5" fill="#fff"/><circle cx="152" cy="137" r="5" fill="#fff"/><circle cx="190" cy="105" r="5" fill="#fff"/></g>
+    </g>
+    <rect x="28" y="412" width="222" height="34" rx="17" fill="rgba(167,139,250,.17)" stroke="#a78bfa"/><text x="48" y="435" class="topic">more reliable 3D cues</text>
+  </g>
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">3D Gaussian</text><text x="28" y="82" class="desc">可从新视角观察的资产</text>
+    <g transform="translate(56 125)" filter="url(#glow)">
+      <ellipse cx="110" cy="258" rx="116" ry="36" fill="none" stroke="#5f789d" stroke-width="2" stroke-dasharray="7 8"/>
+      <ellipse cx="110" cy="185" rx="46" ry="154" fill="none" stroke="#5f789d" stroke-width="2" stroke-dasharray="7 8"/>
+      <circle cx="110" cy="62" r="32" fill="#fb7185"/><circle cx="76" cy="120" r="25" fill="#6ee7f9"/><circle cx="144" cy="120" r="26" fill="#a78bfa"/>
+      <circle cx="110" cy="190" r="46" fill="#fbbf24"/><circle cx="64" cy="250" r="18" fill="#6ee7f9"/><circle cx="158" cy="250" r="18" fill="#86efac"/>
+      <circle cx="55" cy="312" r="12" fill="#f472b6"/><circle cx="171" cy="312" r="12" fill="#f472b6"/>
+    </g>
+    <rect x="28" y="412" width="208" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">surface coverage</text>
+  </g>
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Rigging-ready</text><text x="28" y="82" class="desc">面向下游绑定的诊断</text>
+    <g transform="translate(38 126)">
+      <g opacity=".45"><circle cx="112" cy="56" r="28" fill="#fb7185"/><circle cx="112" cy="132" r="44" fill="#fbbf24"/><circle cx="70" cy="196" r="18" fill="#6ee7f9"/><circle cx="154" cy="196" r="18" fill="#86efac"/></g>
+      <path class="line" d="M112 52 L112 142 M112 105 L68 190 M112 105 L158 190"/><circle class="joint" cx="112" cy="52" r="8"/><circle class="joint" cx="112" cy="105" r="8"/><circle class="joint" cx="68" cy="190" r="8"/><circle class="joint" cx="158" cy="190" r="8"/>
+      <rect x="172" y="22" width="112" height="38" rx="19" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="190" y="47" class="small">关节覆盖</text>
+      <rect x="172" y="84" width="112" height="38" rx="19" fill="rgba(110,231,249,.14)" stroke="#6ee7f9"/><text x="190" y="109" class="small">减少漂浮点</text>
+      <rect x="172" y="146" width="112" height="38" rx="19" fill="rgba(251,191,36,.14)" stroke="#fbbf24"/><text x="190" y="171" class="small">保留细结构</text>
+    </g>
+    <rect x="28" y="412" width="198" height="34" rx="17" fill="rgba(251,191,36,.16)" stroke="#fbbf24"/><text x="48" y="435" class="topic">better for rigging</text>
+  </g>
+</svg>

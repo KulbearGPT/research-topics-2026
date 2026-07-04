@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="心血管超声视频分割课题输入输出示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#12233e"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <linearGradient id="mask" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#6ee7f9"/><stop offset=".55" stop-color="#86efac"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>.title{font:800 38px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 25px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 17px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#dbffe8}.small{font:700 16px Arial,'Noto Sans SC',sans-serif;fill:#dce7ff}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}.ecg{stroke:#86efac;stroke-width:6;fill:none;stroke-linecap:round;stroke-linejoin:round}.heart{fill:none;stroke:#6ee7f9;stroke-width:8;stroke-linecap:round}</style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="150" cy="86" r="190" fill="#6ee7f9" opacity=".09"/><circle cx="1410" cy="96" r="220" fill="#86efac" opacity=".10"/>
+  <text x="60" y="70" class="title">Social Impact 01：Cardiovascular Ultrasound Segmentation</text>
+  <text x="62" y="112" class="sub">从心超视频中获得稳定分割，并用不确定性与临床指标约束减少跨帧抖动。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Input</text><text x="28" y="82" class="desc">心超视频 / 少量标注</text>
+    <g transform="translate(52 122)">
+      <rect x="0" y="0" width="218" height="262" rx="22" fill="#030712" stroke="rgba(255,255,255,.18)"/>
+      <path d="M109 35 L35 224 L183 224 Z" fill="#111827" stroke="#5f789d" stroke-width="2"/>
+      <path d="M70 168 C78 96 150 94 157 166 C160 207 75 210 70 168 Z" fill="#172554" stroke="#93c5fd" stroke-width="4"/>
+      <path d="M90 168 C94 124 134 124 139 168 C142 194 91 194 90 168 Z" fill="#0f172a" stroke="#6ee7f9" stroke-width="5"/>
+      <g opacity=".55"><line x1="20" y1="32" x2="198" y2="246" stroke="#334155" stroke-width="2"/><line x1="198" y1="32" x2="20" y2="246" stroke="#334155" stroke-width="2"/></g>
+      <rect x="20" y="230" width="178" height="12" rx="6" fill="#1f2937"/><rect x="20" y="230" width="104" height="12" rx="6" fill="#6ee7f9"/>
+    </g>
+    <rect x="28" y="412" width="198" height="34" rx="17" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="48" y="435" class="topic">ultrasound video frames</text>
+  </g>
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Temporal Model</text><text x="28" y="82" class="desc">跨帧对齐 + 特征融合</text>
+    <g transform="translate(46 130)">
+      <rect x="0" y="42" width="68" height="168" rx="18" fill="rgba(110,231,249,.18)" stroke="#6ee7f9"/>
+      <rect x="82" y="18" width="68" height="216" rx="18" fill="rgba(167,139,250,.18)" stroke="#a78bfa"/>
+      <rect x="164" y="42" width="68" height="168" rx="18" fill="rgba(134,239,172,.18)" stroke="#86efac"/>
+      <path d="M36 126 H82 M150 126 H164" stroke="#c7d2fe" stroke-width="5" marker-end="url(#arrow)"/>
+      <path class="ecg" d="M8 286 H52 L68 248 L92 320 L118 270 H224"/>
+    </g>
+    <rect x="28" y="412" width="222" height="34" rx="17" fill="rgba(167,139,250,.17)" stroke="#a78bfa"/><text x="48" y="435" class="topic">temporal consistency</text>
+  </g>
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Uncertainty</text><text x="28" y="82" class="desc">mask + confidence map</text>
+    <g transform="translate(56 126)" filter="url(#glow)">
+      <rect x="0" y="0" width="214" height="268" rx="24" fill="#0f172a" stroke="rgba(255,255,255,.18)"/>
+      <path d="M74 176 C76 96 148 90 155 174 C160 222 70 222 74 176 Z" fill="url(#mask)" opacity=".88"/>
+      <path d="M96 174 C98 130 134 128 138 174 C140 200 95 202 96 174 Z" fill="#08111f" opacity=".76"/>
+      <circle cx="154" cy="108" r="26" fill="#fb7185" opacity=".78"/><circle cx="62" cy="112" r="18" fill="#fbbf24" opacity=".72"/>
+      <text x="38" y="244" class="small">low confidence regions</text>
+    </g>
+    <rect x="28" y="412" width="202" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">reliable pseudo-labels</text>
+  </g>
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Clinical Value</text><text x="28" y="82" class="desc">稳定心功能指标估计</text>
+    <g transform="translate(44 126)">
+      <path class="heart" d="M116 80 C92 42 36 58 40 112 C44 170 116 214 116 214 C116 214 188 170 192 112 C196 58 140 42 116 80 Z"/>
+      <path d="M18 268 H66 L82 228 L106 306 L128 252 H218" stroke="#86efac" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="132" y="34" width="112" height="38" rx="19" fill="rgba(110,231,249,.14)" stroke="#6ee7f9"/><text x="158" y="59" class="small">EF</text>
+      <rect x="132" y="86" width="112" height="38" rx="19" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="154" y="111" class="small">EDV</text>
+      <rect x="132" y="138" width="112" height="38" rx="19" fill="rgba(251,191,36,.14)" stroke="#fbbf24"/><text x="154" y="163" class="small">ESV</text>
+    </g>
+    <rect x="28" y="412" width="202" height="34" rx="17" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="48" y="435" class="topic">better clinical metrics</text>
+  </g>
+</svg>

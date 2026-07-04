@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="多源卫星遥感山火预测课题输入输出示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#172033"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <radialGradient id="fire"><stop stop-color="#fff7ed"/><stop offset=".28" stop-color="#fbbf24"/><stop offset=".62" stop-color="#fb7185"/><stop offset="1" stop-color="#7f1d1d"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>.title{font:800 38px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 25px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 17px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#ffefc0}.small{font:700 16px Arial,'Noto Sans SC',sans-serif;fill:#dce7ff}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}.wind{stroke:#6ee7f9;stroke-width:7;fill:none;stroke-linecap:round}.grid{stroke:#1f3b31;stroke-width:2}</style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="150" cy="86" r="190" fill="#fbbf24" opacity=".08"/><circle cx="1410" cy="96" r="220" fill="#fb7185" opacity=".10"/>
+  <text x="60" y="70" class="title">Social Impact 02：Satellite Wildfire Prediction</text>
+  <text x="62" y="112" class="sub">融合卫星、天气、地形、植被和燃料变量，联合预测火点、烧毁区与次日蔓延风险。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Input</text><text x="28" y="82" class="desc">多源遥感与环境变量</text>
+    <g transform="translate(45 128)">
+      <rect x="0" y="0" width="230" height="250" rx="22" fill="#102a1e" stroke="rgba(255,255,255,.18)"/>
+      <path d="M0 200 C42 154 88 180 128 134 C164 92 206 112 230 74 L230 250 L0 250 Z" fill="#166534"/>
+      <path d="M0 250 C54 188 104 214 152 166 C184 134 210 128 230 110 L230 250 Z" fill="#365314" opacity=".9"/>
+      <path d="M0 80 C48 106 82 72 126 98 C164 122 190 82 230 94" fill="none" stroke="#334155" stroke-width="18" opacity=".66"/>
+      <g class="grid"><path d="M46 0 V250 M92 0 V250 M138 0 V250 M184 0 V250"/><path d="M0 50 H230 M0 100 H230 M0 150 H230 M0 200 H230"/></g>
+      <circle cx="164" cy="146" r="24" fill="url(#fire)" filter="url(#glow)"/><circle cx="130" cy="172" r="14" fill="#fbbf24" opacity=".86"/><circle cx="190" cy="122" r="11" fill="#fb7185"/>
+    </g>
+    <rect x="28" y="412" width="224" height="34" rx="17" fill="rgba(251,191,36,.16)" stroke="#fbbf24"/><text x="48" y="435" class="topic">satellite + weather + terrain</text>
+  </g>
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Temporal Fusion</text><text x="28" y="82" class="desc">历史多日时空建模</text>
+    <g transform="translate(46 132)">
+      <rect x="0" y="0" width="64" height="188" rx="18" fill="rgba(110,231,249,.14)" stroke="#6ee7f9"/><text x="18" y="218" class="small">D-3</text>
+      <rect x="82" y="28" width="64" height="188" rx="18" fill="rgba(167,139,250,.14)" stroke="#a78bfa"/><text x="100" y="246" class="small">D-2</text>
+      <rect x="164" y="56" width="64" height="188" rx="18" fill="rgba(251,191,36,.14)" stroke="#fbbf24"/><text x="184" y="274" class="small">D-1</text>
+      <path d="M36 94 H82 M118 122 H164" stroke="#c7d2fe" stroke-width="5" marker-end="url(#arrow)"/>
+      <path class="wind" d="M24 314 C70 292 100 334 148 310 S198 290 230 310"/>
+    </g>
+    <rect x="28" y="412" width="236" height="34" rx="17" fill="rgba(167,139,250,.17)" stroke="#a78bfa"/><text x="48" y="435" class="topic">spatio-temporal encoder</text>
+  </g>
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Multi-task Output</text><text x="28" y="82" class="desc">火点 / 烧毁区 / 蔓延风险</text>
+    <g transform="translate(50 126)">
+      <rect x="0" y="0" width="224" height="268" rx="24" fill="#0f172a" stroke="rgba(255,255,255,.18)"/>
+      <path d="M20 210 C60 158 94 186 128 132 C158 86 196 110 210 72 L210 248 L20 248 Z" fill="#14532d"/>
+      <path d="M52 192 C92 150 128 170 158 130 C178 104 196 112 210 98 L210 248 L52 248 Z" fill="#7f1d1d" opacity=".86"/>
+      <path d="M108 180 C132 134 164 138 188 106" stroke="#fb7185" stroke-width="28" stroke-linecap="round" opacity=".62"/>
+      <circle cx="120" cy="174" r="20" fill="url(#fire)" filter="url(#glow)"/><circle cx="164" cy="132" r="16" fill="#fbbf24" opacity=".92"/>
+      <path d="M78 48 h64 m-24 -24 l24 24 -24 24" stroke="#6ee7f9" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect x="28" y="412" width="206" height="34" rx="17" fill="rgba(251,113,133,.15)" stroke="#fb7185"/><text x="48" y="435" class="topic">next-day spread map</text>
+  </g>
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Impact</text><text x="28" y="82" class="desc">预警、解释与应急响应</text>
+    <g transform="translate(48 126)">
+      <rect x="0" y="0" width="224" height="268" rx="24" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.18)"/>
+      <path d="M42 210 L104 72 L170 210 Z" fill="rgba(251,191,36,.16)" stroke="#fbbf24" stroke-width="6"/>
+      <text x="96" y="176" class="title" style="font-size:86px;fill:#fbbf24">!</text>
+      <rect x="30" y="24" width="78" height="34" rx="17" fill="rgba(110,231,249,.14)" stroke="#6ee7f9"/><text x="48" y="47" class="small">wind</text>
+      <rect x="118" y="24" width="78" height="34" rx="17" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="136" y="47" class="small">fuel</text>
+      <rect x="74" y="224" width="96" height="34" rx="17" fill="rgba(251,113,133,.15)" stroke="#fb7185"/><text x="96" y="247" class="small">risk</text>
+    </g>
+    <rect x="28" y="412" width="220" height="34" rx="17" fill="rgba(251,191,36,.16)" stroke="#fbbf24"/><text x="48" y="435" class="topic">early warning support</text>
+  </g>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-label="课题三 Gaussian-domain Skinning 与 Deformation 输入输出示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#14213a"/></linearGradient>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#152541"/><stop offset="1" stop-color="#0e1a31"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="11" refY="4" orient="auto"><path d="M0,0 L0,8 L12,4 z" fill="#b8c7e4"/></marker>
+    <style>.title{font:800 38px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.sub{font:400 20px Arial,'Noto Sans SC',sans-serif;fill:#aebbd3}.label{font:800 25px Arial,'Noto Sans SC',sans-serif;fill:#f8fbff}.desc{font:400 17px Arial,'Noto Sans SC',sans-serif;fill:#b9c8e2}.topic{font:800 15px Arial,'Noto Sans SC',sans-serif;fill:#fff0c8}.panelStroke{stroke:rgba(255,255,255,.22);stroke-width:1.2}.line{stroke:#f8fafc;stroke-width:7;stroke-linecap:round;fill:none}</style>
+  </defs>
+  <rect width="1600" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="150" cy="80" r="190" fill="#6ee7f9" opacity=".08"/><circle cx="1420" cy="95" r="220" fill="#fbbf24" opacity=".10"/>
+  <text x="60" y="70" class="title">课题三：Gaussian-domain Skinning and Deformation</text>
+  <text x="62" y="112" class="sub">动画时不只移动 Gaussian 中心点，还要处理局部方向、尺度和关节附近的稳定性。</text>
+
+  <g transform="translate(55 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Input</text><text x="28" y="82" class="desc">rest Gaussian + skeleton + pose</text>
+    <g transform="translate(88 125)">
+      <g opacity=".45" filter="url(#glow)"><ellipse cx="72" cy="44" rx="31" ry="27" fill="#fbbf24"/><ellipse cx="72" cy="132" rx="50" ry="62" fill="#fb7185"/><ellipse cx="28" cy="200" rx="18" ry="42" fill="#6ee7f9"/><ellipse cx="128" cy="200" rx="18" ry="42" fill="#a78bfa"/><ellipse cx="48" cy="306" rx="15" ry="50" fill="#fbbf24"/><ellipse cx="110" cy="306" rx="15" ry="50" fill="#86efac"/></g>
+      <path class="line" d="M72 76 L72 160 M72 118 L28 188 M72 118 L128 188 M72 160 L48 310 M72 160 L110 310"/>
+    </g>
+    <rect x="28" y="412" width="212" height="34" rx="17" fill="rgba(251,191,36,.16)" stroke="#fbbf24"/><text x="48" y="435" class="topic">rigged Gaussian asset</text>
+  </g>
+  <path d="M396 420 L422 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(430 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Target Pose</text><text x="28" y="82" class="desc">骨架给出新的动作</text>
+    <g transform="translate(92 128)" stroke-linecap="round" stroke="#f8fafc" stroke-width="8" fill="none">
+      <circle cx="75" cy="35" r="30" fill="#fbbf24" stroke="none"/>
+      <path d="M75 72 L75 158 M75 112 L28 150 M75 112 L138 96 M75 158 L36 304 M75 158 L132 290"/>
+      <g opacity=".28" stroke="#a78bfa"><path d="M75 72 L75 158 M75 112 L34 102 M75 112 L134 152 M75 158 L50 306 M75 158 L116 312"/></g>
+    </g>
+    <rect x="28" y="412" width="172" height="34" rx="17" fill="rgba(110,231,249,.16)" stroke="#6ee7f9"/><text x="48" y="435" class="topic">pose control</text>
+  </g>
+  <path d="M771 420 L797 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(805 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Center-only LBS</text><text x="28" y="82" class="desc">只移动中心点的常见问题</text>
+    <g transform="translate(82 126)" filter="url(#glow)">
+      <ellipse cx="78" cy="42" rx="31" ry="28" fill="#fbbf24"/>
+      <ellipse cx="78" cy="130" rx="50" ry="48" fill="#fb7185"/>
+      <ellipse cx="36" cy="190" rx="14" ry="62" fill="#6ee7f9" transform="rotate(-38 36 190)"/>
+      <ellipse cx="138" cy="174" rx="14" ry="70" fill="#a78bfa" transform="rotate(52 138 174)"/>
+      <ellipse cx="54" cy="292" rx="13" ry="72" fill="#fbbf24" transform="rotate(18 54 292)"/>
+      <ellipse cx="124" cy="290" rx="13" ry="72" fill="#86efac" transform="rotate(-18 124 290)"/>
+    </g>
+    <path d="M240 150 L278 188 M278 150 L240 188" stroke="#fb7185" stroke-width="9" stroke-linecap="round"/>
+    <rect x="28" y="412" width="232" height="34" rx="17" fill="rgba(251,113,133,.15)" stroke="#fb7185"/><text x="48" y="435" class="topic">stretch / blur / joint artifact</text>
+  </g>
+  <path d="M1146 420 L1172 420" stroke="#b8c7e4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1180 170)">
+    <rect width="325" height="500" rx="28" fill="url(#panel)" class="panelStroke"/>
+    <text x="28" y="48" class="label">Gaussian-aware</text><text x="28" y="82" class="desc">center + frame + scale update</text>
+    <g transform="translate(88 126)" filter="url(#glow)">
+      <ellipse cx="78" cy="42" rx="30" ry="28" fill="#fbbf24"/>
+      <ellipse cx="78" cy="132" rx="50" ry="54" fill="#fb7185"/>
+      <ellipse cx="34" cy="188" rx="15" ry="48" fill="#6ee7f9" transform="rotate(-16 34 188)"/>
+      <ellipse cx="132" cy="182" rx="15" ry="50" fill="#a78bfa" transform="rotate(22 132 182)"/>
+      <ellipse cx="56" cy="292" rx="14" ry="54" fill="#fbbf24" transform="rotate(8 56 292)"/>
+      <ellipse cx="118" cy="292" rx="14" ry="54" fill="#86efac" transform="rotate(-8 118 292)"/>
+    </g>
+    <path d="M238 154 q28 32 66 0" fill="none" stroke="#86efac" stroke-width="9" stroke-linecap="round"/><path d="M238 154 l16 4 M304 154 l-16 4" stroke="#86efac" stroke-width="9" stroke-linecap="round"/>
+    <rect x="28" y="412" width="216" height="34" rx="17" fill="rgba(134,239,172,.14)" stroke="#86efac"/><text x="48" y="435" class="topic">more stable animation</text>
+  </g>
+</svg>
